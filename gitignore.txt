@@ -1,0 +1,32 @@
+# Compiled files
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+nbproject/
+nbbuild/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+dependency-reduced-pom.xml
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~
