@@ -15,14 +15,15 @@ com\unilus\videotranslator\videotranslationapp\network\NetworkManager.class
 com\unilus\videotranslator\videotranslationapp\video\VideoCaptureManager.class
 com\unilus\videotranslator\videotranslationapp\audio\AssemblyAISpeechRecognizer.class
 com\unilus\videotranslator\videotranslationapp\ui\VideoControlPannel.class
+com\unilus\videotranslator\videotranslationapp\media\FFmpegMerger.class
 com\unilus\videotranslator\videotranslationapp\video\VideoPannel.class
 com\unilus\videotranslator\videotranslationapp\ui\MainWindow.class
 com\unilus\videotranslator\videotranslationapp\audio\OfflineSpeechRecognizer.class
-com\unilus\videotranslator\videotranslationapp\ui\LecturerWindow$1.class
 com\unilus\videotranslator\videotranslationapp\video\ImageUtils.class
 com\unilus\videotranslator\videotranslationapp\audio\SpeechToTextPipeline.class
 com\unilus\videotranslator\videotranslationapp\network\UDPReceiver.class
 com\unilus\videotranslator\videotranslationapp\audio\AudioCaptureManager$AudioCaptureCallback.class
+com\unilus\videotranslator\videotranslationapp\audio\AudioRecorder.class
 com\unilus\videotranslator\videotranslationapp\database\DatabaseManager.class
 com\unilus\videotranslator\videotranslationapp\database\DatabaseManager$Statistics.class
 com\unilus\videotranslator\videotranslationapp\VideoTranslationApp.class
