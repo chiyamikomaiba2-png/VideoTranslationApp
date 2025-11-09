@@ -11,7 +11,7 @@ import com.unilus.videotranslator.videotranslationapp.network.UDPTransmitter;
 import com.unilus.videotranslator.videotranslationapp.network.UDPReceiver;
 import com.unilus.videotranslator.videotranslationapp.translation.TranslationEngine;
 import org.opencv.core.Mat;
-
+import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
@@ -222,17 +222,24 @@ public class MainWindow extends JFrame {
     }
 
     private BufferedImage matToBufferedImage(Mat mat) {
-        int width = mat.width(), height = mat.height(), channels = mat.channels();
-        byte[] sourcePixels = new byte[width * height * channels];
-        mat.get(0, 0, sourcePixels);
-        BufferedImage image;
-        if (channels == 3)
-            image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-        else
-            image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
-        image.getRaster().setDataElements(0, 0, width, height, sourcePixels);
-        return image;
+    // Convert from BGR to RGB if mat has 3 channels
+    Mat rgbMat = new Mat();
+    if (mat.channels() == 3) {
+        Imgproc.cvtColor(mat, rgbMat, Imgproc.COLOR_BGR2RGB);
+    } else {
+        rgbMat = mat;
     }
+    int width = rgbMat.width(), height = rgbMat.height(), channels = rgbMat.channels();
+    byte[] sourcePixels = new byte[width * height * channels];
+    rgbMat.get(0, 0, sourcePixels);
+    BufferedImage image;
+    if (channels == 3)
+        image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+    else
+        image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
+    image.getRaster().setDataElements(0, 0, width, height, sourcePixels);
+    return image;
+}
 
     private void startSending() {
         sending = true;
